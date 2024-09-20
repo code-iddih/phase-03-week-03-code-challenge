@@ -22,3 +22,15 @@ connection_str = 'sqlite:///' + os.path.join(BASE_DIR , 'concert.db')
 engine = create_engine('sqlite:///concert.db')
 
 Base = declarative_base()
+
+# Band Model
+class Band(Base):
+    __tablename__ = 'bands'
+    id = Column(Integer() , primary_key = True)
+    name = Column(String(255) , nullable = False)
+    hometown = Column(String(255) , nullable = False)
+    # Defining the relationship
+    concerts = relationship(
+        'Concert', 
+        back_populates = 'band'
+    )
