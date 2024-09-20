@@ -35,6 +35,15 @@ class Band(Base):
         back_populates = 'band'
     )
 
+    # Object Relationship Methods
+
+    def get_concerts(self):
+        return self.concerts
+
+    def venues(self):
+        return [concert.venue for concert in self.concerts]
+
+
 # Venue Model
 class Venue(Base):
     __tablename__ = 'venues'
@@ -47,6 +56,14 @@ class Venue(Base):
         back_populates = 'venue'
     )
 
+    # Object Relationship Methods
+
+    def get_concerts(self):
+        return self.concerts
+
+    def bands(self):
+        return [concert.band for concert in self.concerts]
+
 # Concert Model
 class Concert(Base):
     __tablename__ = 'concerts'
@@ -57,3 +74,11 @@ class Concert(Base):
     venue_id = Column(Integer, ForeignKey('venues.id'))
     band = relationship('Band', back_populates='concerts')
     venue = relationship('Venue', back_populates='concerts')
+
+    # Object Relationship Methods
+
+    def get_band(self):
+        return self.band
+
+    def get_venue(self):
+        return self.venue
