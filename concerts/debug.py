@@ -39,6 +39,9 @@ if __name__ == '__main__':
             print(" Name:", new_concert.name)
             print(" Date:", new_concert.date)
 
+        # Band all_introductions()
+        example_introduction = print(" Introductions for First Band:", first_band.all_introductions())
+
     # Test retrieving the first Venue
     first_venue = session.query(Venue).first()
     if first_venue:
