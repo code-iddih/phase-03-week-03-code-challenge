@@ -57,3 +57,9 @@ if __name__ == '__main__':
         # Concert get_venue()
         # Returns the Venue instance for this Concert
         print(" Venue for First Concert:", first_concert.get_venue().title)
+
+        # Concert hometown_show()
+        # Returns true if the concert is in the band's hometown, false if it is not
+        print(first_concert.hometown_show())
+        
+

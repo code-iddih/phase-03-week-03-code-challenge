@@ -82,3 +82,9 @@ class Concert(Base):
 
     def get_venue(self):
         return self.venue
+    
+    # Aggregate and Relationship Methods
+
+    def hometown_show(self):
+        return self.venue.city == self.band.hometown
+    
