@@ -61,5 +61,10 @@ if __name__ == '__main__':
         # Concert hometown_show()
         # Returns true if the concert is in the band's hometown, false if it is not
         print(first_concert.hometown_show())
+
+        # Concert introduction()
+        # Returns a string with the band's introduction for this concert
+        print(first_concert.introduction())
+    
         
 
