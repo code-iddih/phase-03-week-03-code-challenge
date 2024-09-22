@@ -42,6 +42,13 @@ class Band(Base):
 
     def venues(self):
         return [concert.venue for concert in self.concerts]
+    
+    # Aggregate and Relationship Methods
+
+    def play_in_venue(self, venue, date):
+        concert_name = f"{self.name} Festival"
+        new_concert = Concert(name=concert_name, date=date, band=self, venue=venue)
+        return new_concert
 
 
 # Venue Model
@@ -63,6 +70,8 @@ class Venue(Base):
 
     def bands(self):
         return [concert.band for concert in self.concerts]
+    
+    # Aggregate and Relationship Methods
 
 # Concert Model
 class Concert(Base):

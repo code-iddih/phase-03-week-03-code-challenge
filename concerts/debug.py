@@ -28,6 +28,17 @@ if __name__ == '__main__':
         # Returns a collection of all the venues that the Band has performed at
         print(" Venues for First Band:", [venue.title for venue in first_band.venues()])
 
+        # Band play_in_venue(venue, date)
+        # Creates a new concert for the band in that venue on that date
+        if session.query(Venue).count() > 0:  # Ensuring there are venues available
+            venue = session.query(Venue).first()  # Getting the first venue
+            new_concert = first_band.play_in_venue(venue, "2024-10-11")
+            session.add(new_concert)
+            session.commit()
+            print(" A new Concert has been Created:")
+            print(" Name:", new_concert.name)
+            print(" Date:", new_concert.date)
+
     # Test retrieving the first Venue
     first_venue = session.query(Venue).first()
     if first_venue:
