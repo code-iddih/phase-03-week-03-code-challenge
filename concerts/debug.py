@@ -76,6 +76,17 @@ if __name__ == '__main__':
         else:
             print(f"No concert found on {concert_date} at {first_venue.title}.")
 
+        # Venue most_frequent_band()
+        # Returns the band with the most concerts at the venue
+        the_most_frequent_band, concert_counts = first_venue.most_frequent_band()
+        if the_most_frequent_band:
+            print(f"\nMost Frequent Band at {first_venue.title}:")
+            print(" Name:", the_most_frequent_band.name)
+            print(" Hometown:", the_most_frequent_band.hometown)
+            print(" Number of Concerts:", concert_counts)
+        else:
+            print(f"No concerts found at {first_venue.title}.")
+
     # Test retrieving the first Concert
     first_concert = session.query(Concert).first()
     if first_concert:

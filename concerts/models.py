@@ -92,6 +92,26 @@ class Venue(Base):
             if concert.date == date:
                 return concert
         return None  # if there is no concert on that specific date
+    
+    def most_frequent_band(self):
+        concert_counts = {}
+        
+        for concert in self.concerts:
+            band = concert.band
+            if band in concert_counts:
+                concert_counts[band] += 1
+            else:
+                concert_counts[band] = 1
+        
+        most_frequent = None
+        max_count = 0
+        
+        for band, count in concert_counts.items():
+            if count > max_count:
+                most_frequent = band
+                max_count = count
+        
+        return most_frequent , max_count
 
 # Concert Model
 class Concert(Base):
