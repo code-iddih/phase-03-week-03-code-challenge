@@ -65,6 +65,17 @@ if __name__ == '__main__':
         # Returns a collection of all the bands who performed at the Venue
         print(" Bands for First Venue:", [band.name for band in first_venue.bands()])
 
+        # Venue concert_on(date)
+        # Finds and returns the first concert on that date at that venue
+        concert_date = "2024-10-11"  
+        concert = first_venue.concert_on(concert_date)
+        if concert:
+            print(f"\nConcert on {concert_date} at {first_venue.title}:")
+            print(" Name:", concert.name)
+            print(" Date:", concert.date)
+        else:
+            print(f"No concert found on {concert_date} at {first_venue.title}.")
+
     # Test retrieving the first Concert
     first_concert = session.query(Concert).first()
     if first_concert:
