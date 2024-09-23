@@ -42,6 +42,14 @@ if __name__ == '__main__':
         # Band all_introductions()
         example_introduction = print(" Introductions for First Band:", first_band.all_introductions())
 
+        # Band most_performances()
+        # Returns the Band instance for the band that has played the most concerts
+        most_perfomed_band = Band.most_performances(session)
+        print("\nBand with the most performances:")
+        print(" Name:", most_perfomed_band.name)
+        print(" Hometown:", most_perfomed_band.hometown)
+        print(" Total Concerts:", len(most_perfomed_band.get_concerts()))
+
     # Test retrieving the first Venue
     first_venue = session.query(Venue).first()
     if first_venue:
@@ -79,6 +87,8 @@ if __name__ == '__main__':
         # Concert introduction()
         # Returns a string with the band's introduction for this concert
         print(first_concert.introduction())
+
+session.close()
     
         
 
